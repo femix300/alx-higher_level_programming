@@ -47,7 +47,7 @@ void print_python_bytes(PyObject *pyBytes)
 	printf("  size: %zd\n", size);
 
 	string = (assert(PyBytes_Check(pyBytes)),
-			          (((PyBytesObject *)(pyBytes))->ob_sval));
+			(((PyBytesObject *)(pyBytes))->ob_sval));
 
 	printf("  trying string: %s\n", string);
 
