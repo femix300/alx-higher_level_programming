@@ -33,8 +33,6 @@ void print_python_bytes(PyObject *pyBytes)
 	Py_ssize_t size = 0;
 	char *str = NULL;
 
-	str = bytesObj->ob_sval;
-
 	fflush(stdout);
 	printf("[.] bytes object info\n");
 
@@ -48,6 +46,8 @@ void print_python_bytes(PyObject *pyBytes)
 	printf("  size: %zd\n", size);
 
 	PyBytesObject *bytesObj = (PyBytesObject *)pyBytes;
+
+	str = bytesObj->ob_sval;
 
 	printf("  trying string: %s\n", str);
 	printf("  first %zd bytes:", (size < 10) ? size : 10);
