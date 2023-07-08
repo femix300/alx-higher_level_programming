@@ -1,5 +1,109 @@
-Test Cases for 0-add_integer.py
-_______________________________
-_______________________________
+Test Cases for 0-add_integer.py module
+======================================
 
+The module takes in two ints/floats and returns their sum
 
+====================
+How to use
+====================
+
+Importing function from the module:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Passing in 2 positive integers:
+    >>> add_integer(2, 3)
+    5
+
+Passing in a positive and a negative integer:
+    >>> add_integer(2, -3)
+    -1
+
+Passing in a negative and a positive integer:
+    >>> add_integer(-3, 2)
+    -1
+
+Passing in a float and and integer:
+    >>> add_integer(3.2, 5)
+    8
+
+Passing in an integer and a float:
+    >>> add_integer(88, 8.8)
+    96
+
+Passing in a float and another float:
+    >>> add_integer(8.9, 10.2)
+    18
+
+Passing in inf:
+    >>> add_integer(1, float('inf'))
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+Passing in NaN:
+    >>> add_integer(1, float('nan'))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+Passing in a super long integer:
+    >>> add_integer(999999999999999999999999999999, 1)
+    1000000000000000000000000000000
+
+Passing in an integer and a string:
+    >>> add_integer("Lion", 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Passing in a string and an integer:
+    >>> add_integer(3, "Julien")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Passing in a list and an integer:
+    >>> add_integer([4], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Passing in two non-integers/non-floats:
+    >>> add_integer((3,), [0, 1])
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Passing in a bool and an integer:
+    >>> add_integer(True, 1)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Passing in an integer and a bool:
+    >>> add_integer(0, False)
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Passing in no arguments at all:
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
+
+Passing in more than two arguments:
+    >>> add_integer(1, 2, 3, 4, 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() takes 2 positional arguments but 5 were given
+
+Passing in just one argument:
+    >>> add_integer(1)
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'b'
+
+Passing in multiple values:
+    >>> [add_integer(i, i ** 2) for i in range(6)]
+    [0, 2, 6, 12, 20, 30]
