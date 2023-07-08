@@ -1,0 +1,66 @@
+Test Cases for 4-print_square
+==============================
+
+==============================
+How to use
+==============================
+
+Importing the function from the module:
+    >>> print_square = __import__("4-print_square").print_square
+
+Passing in a float:
+    >>> print_square(9.9)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Passing in a string:
+    >>> print_square("Hello, World")
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Passing in normal input i.e a positive int:
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    >>> print_square(0)
+    >>> print_square(1)
+    #
+
+Passing in no args:
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+Passing in more than 1 arg:
+    >>> print_square(1, 2, 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() takes 1 positional argument but 3 were given
+
+Passing in a negative int:
+    >>> print_square(-5)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
+
+Passing in a negative float:
+    >>> print_square(-5.7)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
