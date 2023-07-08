@@ -1,0 +1,29 @@
+Test cases for 3-say_my_name.py
+===============================
+
+==========
+How to use
+==========
+
+Importing the function from the module:
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Passing in a string and an int:
+    >>> say_my_name("Hello", 8)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+Passing in an int and a string:
+    >>> say_my_name(8, "eight")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Testing in normal conditions:
+    >>> say_my_name("Peter", "Paul")
+    My name is Peter Paul
+
+Passing in only 1 arg:
+    >>> say_my_name("Hello")
+    My name is Hello 
