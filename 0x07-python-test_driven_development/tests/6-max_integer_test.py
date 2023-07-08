@@ -62,6 +62,21 @@ class TestMaxInteger(unittest.TestCase):
         d_list = [2.5, 18.97, 300.2, 1000.15]
         self.assertEqual(max_integer(d_list), 1000.15)
 
+    def test_big_at_center(self):
+        """Test a list ordered at center"""
+        d_list = [2, 5, 99, 9, 7]
+        self.assertEqual(max_integer(d_list), 99)
+
+    def test_one_element(self):
+        """Pass in only one element into the func"""
+        d_list = [1]
+        self.assertEqual(max_integer(d_list), 1)
+
+    def test_only_a_negative_number(self):
+        """Test the func with just one negative num"""
+        d_list = [4, -9, 2]
+        self.assertEqual(max_integer(d_list), 4)
+
 
 if __name__ == '__main__':
     unittests.main()
