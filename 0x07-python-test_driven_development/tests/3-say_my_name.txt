@@ -1,29 +1,52 @@
-Test cases for 3-say_my_name.py
-===============================
+Test Cases for 3-say_my_name.txt
+================================
 
-==========
+=================
 How to use
-==========
+=================
 
 Importing the function from the module:
-    >>> say_my_name = __import__("3-say_my_name").say_my_name
+	>>> say_my_name = __import__("3-say_my_name").say_my_name
 
-Passing in a string and an int:
-    >>> say_my_name("Hello", 8)
-    Traceback (most recent call last):
-    ...
-    TypeError: last_name must be a string
+Checking for module docstring:
+	 >>> m = __import__("3-say_my_name").__doc__
+	 >>> len(m) > 1
+	 True
 
-Passing in an int and a string:
-    >>> say_my_name(8, "eight")
-    Traceback (most recent call last):
-    ...
-    TypeError: first_name must be a string
+Checking for function docstring:
+	 >>> f = __import__("3-say_my_name").say_my_name.__doc__
+         >>> len(f) > 1
+         True
 
-Testing in normal conditions:
-    >>> say_my_name("Peter", "Paul")
-    My name is Peter Paul
+Passing in None as first name:
+	 >>> say_my_name(None, "Bonjour")
+	 Traceback (most recent call last):
+         ...
+         TypeError: first_name must be a string
 
-Passing in only 1 arg:
-    >>> say_my_name("Hello")
-    My name is Hello 
+Passing in None as last name:
+	 >>> say_my_name("Cocou", None)
+	 Traceback (most recent call last):
+         ...
+         TypeError: last_name must be a string
+
+Passing in a wrong type as first name:
+         >>> say_my_name(300, "Hello")
+         Traceback (most recent call last):
+         ...
+         TypeError: first_name must be a string
+
+Passing in a wrong type as the last name:
+         >>> say_my_name("Hello", 89)
+         Traceback (most recent call last):
+         ...
+         TypeError: last_name must be a string
+
+Testing normal use:
+	 >>> say_my_name("You know nothing", "John Snow")
+	 My name is You know nothing John Snow
+
+Passing in just 1 arg:
+	 >>> say_my_name("croissant")
+	 My name is croissant 
+
