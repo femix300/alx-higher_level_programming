@@ -1,8 +1,8 @@
 How to Test 1-my_list.py
 ========================
 
-Importing the function from the module
-    >>> MyList = __import__("1-my_list.py").MyList
+Importing the function from the module:
+    >>> MyList = __import__("1-my_list").MyList
 
 checking if MyList inherits list
     >>> l = MyList()
