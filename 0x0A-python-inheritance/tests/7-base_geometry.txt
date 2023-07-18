@@ -1,23 +1,37 @@
-Tests for 7-base_geometry.py
-============================
-
+Test for 7-base_geometry.py
+===========================
 
 Importing the function from the module:
-    >>> BG = __import__("7-base_geometry").BaseGeometry
+        >>> BG = __import__("7-base_geometry").BaseGeometry
+Checking for area failure:
+	 >>> b = BG()
+	 >>> b.area()
+	 Traceback (most recent call last):
+	 ...
+	 Exception: area() is not implemented
 
-Testing for when integer == 0:
+Checking too many arguments for area:
+	 >>> b.area(1)
+	 Traceback (most recent call last):
+         ...
+	 TypeError: area() takes 1 positional argument but 2 were given
+
+Checking integer validator for passing integer:
+	 >>> b.integer_validator("integer", 1)
+
+Checking for integer == 0:
 	 >>> b.integer_validator("integer", 0)
 	 Traceback (most recent call last):
          ...
          ValueError: integer must be greater than 0
 
-Testing for integer < 0;
+Checking for integer < 0;
 	 >>> b.integer_validator("integer", -5)
 	 Traceback (most recent call last):
          ...
          ValueError: integer must be greater than 0
 
- passing in non-integer types:
+Checking for non-integer types:
 	 >>> b.integer_validator("bool", True)
 	 Traceback (most recent call last):
          ...
@@ -63,36 +77,20 @@ Testing for integer < 0;
          ...
          TypeError: bytearrays must be an integer
 
-Passing in no arguments to integer_validator:
+Checking for no arguments to integer_validator:
 	 >>> b.integer_validator()
 	 Traceback (most recent call last):
          ...
 	 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-Passing in only 1 argument to integer_validator:
+Checking for only 1 argument to integer_validator:
 	 >>> b.integer_validator("integer")
 	 Traceback (most recent call last):
          ...
 	 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-Passing in too many arguments:
+Checking for too many arguments:
 	 >>> b.integer_validator("integer", 1, 2)
 	 Traceback (most recent call last):
          ...
 	 TypeError: integer_validator() takes 3 positional arguments but 4 were given
-
-Testing for area failure:
-     >>> b = BG()
-     >>> b.area()
-     Traceback (most recent call last):
-     ...
-     Exception: area() is not implemented
-
-Passing in too many arguments for area:
-     >>> b.area(1)
-     Traceback (most recent call last):
-         ...
-     TypeError: area() takes 1 positional argument but 2 were given
-
-Testing integer validator for passing integer:
-     >>> b.integer_validator("integer", 1)
