@@ -80,3 +80,19 @@ Passing in too many arguments:
 	 Traceback (most recent call last):
          ...
 	 TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Testing for area failure:
+     >>> b = BG()
+     >>> b.area()
+     Traceback (most recent call last):
+     ...
+     Exception: area() is not implemented
+
+Passing in too many arguments for area:
+     >>> b.area(1)
+     Traceback (most recent call last):
+         ...
+     TypeError: area() takes 1 positional argument but 2 were given
+
+Testing integer validator for passing integer:
+     >>> b.integer_validator("integer", 1)
