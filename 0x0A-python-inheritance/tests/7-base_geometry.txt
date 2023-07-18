@@ -1,21 +1,24 @@
-How to Test 7-base_geometry
-===========================
 
+The ``7-base_geometry`` module
+======================
+
+Using ``BaseGeometry``
+-------------------
 
 Importing the function from the module:
         >>> BG = __import__("7-base_geometry").BaseGeometry
 
-Testing module docstring:
+Checking for module docstring:
          >>> m = __import__("7-base_geometry").__doc__
          >>> len(m) > 1
          True
 
-Testing class docstring:
+Checking for class docstring:
          >>> c = __import__("7-base_geometry").BaseGeometry.__doc__
          >>> len(c) > 1
          True
 
-Testing method docstring:
+Checking for method docstring:
 	 >>> mod1 = __import__("7-base_geometry").BaseGeometry.area.__doc__
 	 >>> len(mod1) > 1
 	 True
@@ -23,35 +26,35 @@ Testing method docstring:
          >>> len(mod2) > 1
          True
 
-Testing area failure:
+Checking for area failure:
 	 >>> b = BG()
 	 >>> b.area()
 	 Traceback (most recent call last):
 	 ...
 	 Exception: area() is not implemented
 
-Testing too many arguments for area:
+Checking too many arguments for area:
 	 >>> b.area(1)
 	 Traceback (most recent call last):
          ...
 	 TypeError: area() takes 1 positional argument but 2 were given
 
-Testing integer validator for passing integer:
+Checking integer validator for passing integer:
 	 >>> b.integer_validator("integer", 1)
 
-Passing in 0 as integer:
+Checking for integer == 0:
 	 >>> b.integer_validator("integer", 0)
 	 Traceback (most recent call last):
          ...
          ValueError: integer must be greater than 0
 
-passing in an integer < 0;
+Checking for integer < 0;
 	 >>> b.integer_validator("integer", -5)
 	 Traceback (most recent call last):
          ...
          ValueError: integer must be greater than 0
 
-Passing in non-integer types:
+Checking for non-integer types:
 	 >>> b.integer_validator("bool", True)
 	 Traceback (most recent call last):
          ...
@@ -97,19 +100,19 @@ Passing in non-integer types:
          ...
          TypeError: bytearrays must be an integer
 
-Passing in no arguments to integer_validator:
+Checking for no arguments to integer_validator:
 	 >>> b.integer_validator()
 	 Traceback (most recent call last):
          ...
 	 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-Passing in only 1 argument to integer_validator:
+Checking for only 1 argument to integer_validator:
 	 >>> b.integer_validator("integer")
 	 Traceback (most recent call last):
          ...
 	 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-Passing in too many arguments:
+Checking for too many arguments:
 	 >>> b.integer_validator("integer", 1, 2)
 	 Traceback (most recent call last):
          ...
