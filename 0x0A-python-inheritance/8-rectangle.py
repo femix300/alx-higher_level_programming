@@ -4,6 +4,7 @@ Contains the class Rectangle that inherits from BaseGeometery
 """
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     """A class that inherits the class BaseGeometry"""
 
