@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""Defines a Student Class"""
+"""Defines a class student"""
 
 
 class Student:
-    """Represents a Student"""
+    """Represents a student."""
+
     def __init__(self, first_name, last_name, age):
         """Initialize a new Student.
 
@@ -21,18 +22,13 @@ class Student:
         self.age = age
 
     def to_json(self, attrs):
-        """
-        Retrieves a dictionary representation of the Student instance.
+        """Get a dictionary representation of the Student.
+
+        If attrs is a list of strings, represents only those attributes
+        included in the list.
 
         Args:
-            attrs (list of str): List of attribute names to retrieve.
-
-        Returns:
-            dict: Dictionary containing the specified
-            attributes and their values.
-
-        If 'attrs' list is empty, it returns a dictionary representation
-        of all attributes of the Student instance.
+            attrs (list): (Optional) The attributes to represent.
         """
         if isinstance(attrs, list) and
         all(isinstance(attr, str) for attr in attrs):
