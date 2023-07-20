@@ -26,11 +26,13 @@ class Student:
             attrs (list of str): List of attribute names to retrieve.
 
         Returns:
-            dict: Dictionary containing the specified attributes and their values.
+            dict: Dictionary containing the specified
+            attributes and their values.
 
         If 'attrs' list is empty, it returns a dictionary representation
         of all attributes of the Student instance.
         """
-        if isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
+        if isinstance(attrs, list) and
+        all(isinstance(attr, str) for attr in attrs):
             return {attr: getattr(self, attr) for attr in attrs}
         return self.__dict__
