@@ -1,23 +1,15 @@
 #!/usr/bin/python3
+"""A module that contains the rectangle class"""
+
 from models.base import Base
-"""Defines a child class"""
 
 
 class Rectangle(Base):
 
-    """A rectangle class"""
+    """A rectangle"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initializes the rectangle class
-
-        Args:
-            width: the width of the rectangle
-            height: the rectangles's height
-            x: it's x coordinate
-            y: it's y coordinate
-            id: it's identity
-
-        """
+        """Initializes the rectangle"""
         super().__init__(id)
         self.width = width
         self.height = height
