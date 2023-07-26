@@ -28,6 +28,7 @@ class Rectangle(Base):
             print(" " * self.__x + "#" * self.__width)
 
     def update(self, *args):
+        """updates the class"""
         try:
             self.id = args[0]
             self.__width = args[1]
