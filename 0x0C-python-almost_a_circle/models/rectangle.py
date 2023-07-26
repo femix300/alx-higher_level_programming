@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from models.base import base
+from models.base import Base
 """Defines a child class"""
 
 
