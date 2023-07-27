@@ -28,7 +28,7 @@ class Rectangle(Base):
             print(" " * self.__x + "#" * self.__width)
 
     def to_dictionary(self):
-        """Returns the dictionary representation of the dictionary object"""
+        """Returns the dictionary representation of the rectangle object"""
         return {
                 "id": self.id,
                 "width": self.width,
