@@ -17,7 +17,7 @@ class Square(Rectangle):
         if args:
             try:
                 self.id = args[0]
-                self.width = args[1]
+                self.size = args[1]
                 self.x = args[2]
                 self.y = args[3]
             except IndexError:
@@ -27,7 +27,7 @@ class Square(Rectangle):
                 if key == "id":
                     self.id = value
                 if key == "size":
-                    self.width = value
+                    self.size = value
                 if key == "x":
                     self.x = value
                 if key == "y":
