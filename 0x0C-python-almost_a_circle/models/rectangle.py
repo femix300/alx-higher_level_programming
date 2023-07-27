@@ -48,6 +48,8 @@ class Rectangle(Base):
                     self.__x = value
                 if key == "y":
                     self.__y = value
+                if key == "id":
+                    self.id = value
 
     @property
     def width(self):
