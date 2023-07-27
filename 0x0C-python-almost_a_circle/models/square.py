@@ -12,6 +12,27 @@ class Square(Rectangle):
         """Initializes a new square"""
         super().__init__(size, size, x, y, id)
 
+    def update(self, *args, **kwargs):
+        """updates the square class"""
+        if args:
+            try:
+                self.id = args[0]
+                self.width = args[1]
+                self.x = args[2]
+                self.y = args[3]
+            except IndexError:
+                pass
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "size":
+                    self.width = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
+
     @property
     def size(self):
         return self.width
