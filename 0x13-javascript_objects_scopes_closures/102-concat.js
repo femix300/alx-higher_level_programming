@@ -1,21 +1,25 @@
 #!/usr/bin/node
 
-// Import fs module
 const fs = require('fs');
 
-// Destructure the command-line arguments
-const [, , fileAPath, fileBPath, fileCPath] = process.argv;
+if (process.argv.length !== 5) {
+  console.log('Usage: node concat.js <file1> <file2> <output_file>');
+  process.exit(1);
+}
 
-// Read fileA
-const fileAContent = fs.readFileSync(fileAPath, 'utf-8');
+const file1 = process.argv[2];
+const file2 = process.argv[3];
+const outputFile = process.argv[4];
 
-// Read fileB
-const fileBContent = fs.readFileSync(fileBPath, 'utf-8');
+// Read the contents of file1 (if it exists)
+const data1 = fs.existsSync(file1) ? fs.readFileSync(file1, 'utf8') : '';
+const data2 = fs.readFileSync(file2, 'utf8');
 
-// Concatenate fileA and fileB with a new line to separate them
-const concatContent = fileAContent + '\n' + fileBContent;
+const concatenatedData = (data1 !== '' ? data1 + '\n' : '') + data2;
 
-// Write the concatenated contents to fileC
-fs.writeFileSync(fileCPath, concatContent, 'utf-8');
-
-console.log(concatContent);
+fs.writeFile(outputFile, concatenatedData, 'utf8', (err) => {
+  if (err) {
+    process.exit(1);
+  }
+console.log(concatenatedData);
+});
