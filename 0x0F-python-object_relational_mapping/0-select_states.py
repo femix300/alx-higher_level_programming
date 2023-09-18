@@ -1,31 +1,37 @@
 #!/usr/bin/python3
 
-"""lists all states from the database hbtn_0e_0_usa"""
-
 import MySQLdb
 import sys
 
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
 
-mydb = MySQLdb.connect(
-    host="localhost",
-    user=username,
-    passwd=password,
-    db=database
-)
+def main():
+    """Lists all states from the database hbtn_0e_0_usa"""
 
-mycursor = mydb.cursor()
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-sql = f"SELECT * FROM states ORDER BY states.id"
+    mydb = MySQLdb.connect(
+        host="localhost",
+        user=username,
+        passwd=password,
+        db=database
+    )
 
-mycursor.execute(sql)
+    mycursor = mydb.cursor()
 
-myresult = mycursor.fetchall()
+    sql = f"SELECT * FROM states ORDER BY states.id"
 
-for state in myresult:
-    print(state)
+    mycursor.execute(sql)
 
-mycursor.close()
-mydb.close()
+    myresult = mycursor.fetchall()
+
+    for state in myresult:
+        print(state)
+
+    mycursor.close()
+    mydb.close()
+
+
+if __name__ == '__main__':
+    main()
