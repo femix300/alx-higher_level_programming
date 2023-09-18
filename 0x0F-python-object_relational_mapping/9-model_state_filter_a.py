@@ -17,10 +17,7 @@ if __name__ == "__main__":
     session = Session()
     states = session.query(State).filter(State.name.like('%a%')).all()
 
-    if not states:
-        print("Nothing")
-    else:
-        for state in states:
-            print("{}: {}".format(state.id, state.name))
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
 
     session.close()
