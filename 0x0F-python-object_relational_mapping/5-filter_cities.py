@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     sql = sql = ("SELECT c.* FROM cities c "
                  "INNER JOIN states s ON c.state_id = s.id "
-                 "WHERE s.name = %s")
+                 "WHERE s.name LIKE BINARY %s")
 
     mycursor.execute(sql, (state_name,))
     cities = mycursor.fetchall()
