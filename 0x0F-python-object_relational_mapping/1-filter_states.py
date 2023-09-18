@@ -15,7 +15,8 @@ def main():
         host="localhost",
         user=username,
         passwd=password,
-        db=database
+        db=database,
+        port=3306
     )
 
     mycursor = mydb.cursor()

@@ -18,12 +18,12 @@ def main():
         user=username,
         passwd=password,
         db=database,
+        port=3306
     )
 
     mycursor = mydb.cursor()
 
-    sql = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id".format(
-        name)
+    sql = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id".format(name)
 
     mycursor.execute(sql)
 
@@ -34,3 +34,6 @@ def main():
 
     mycursor.close()
     mydb.close()
+
+if __name__ == '__main__':
+    main()
