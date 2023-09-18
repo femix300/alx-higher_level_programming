@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+"""Lists all states with a name starting with N (upper N)"""
 
 import MySQLdb
 import sys
-"""Lists all states with a name starting with N (upper N)"""
 
 if __name__ == '__main__':
     username = sys.argv[1]
