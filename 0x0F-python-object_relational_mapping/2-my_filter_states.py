@@ -21,10 +21,9 @@ if __name__ == '__main__':
 
     mycursor = mydb.cursor()
 
-    sql = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id".format(
-        name)
+    sql = "SELECT * FROM states WHERE name = %s ORDER BY states.id"
 
-    mycursor.execute(sql)
+    mycursor.execute(sql, (name,))
 
     myresult = mycursor.fetchall()
 
