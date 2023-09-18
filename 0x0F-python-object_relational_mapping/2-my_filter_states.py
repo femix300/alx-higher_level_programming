@@ -21,8 +21,9 @@ if __name__ == '__main__':
 
     mycursor = mydb.cursor()
 
-    sql = "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id".format(
-        name)
+    sql = ("SELECT * FROM states "
+           "WHERE name LIKE BINARY '{}' "
+           "ORDER BY states.id").format(name)
 
     mycursor.execute(sql)
 
