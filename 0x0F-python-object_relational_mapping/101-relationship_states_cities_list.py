@@ -19,13 +19,16 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).order_by(State.id).all()
-
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
-        cities = state.cities
-        for city in cities:
-            print("     {}: {}".format(city.id, city.name))
+    results = session.query(State, City).filter(
+        (State.id == City.state_id)).order_by(State.id, City.id).all()
+    
+    curr_state = None
+        
+    for state, city in results:
+        if state != curr_state:
+            curr_state = state
+            print("{}: {}".format(state.id, state.name))
+        print("\t{}: {}".format(city.id, city.name))
 
     session.commit()
 
