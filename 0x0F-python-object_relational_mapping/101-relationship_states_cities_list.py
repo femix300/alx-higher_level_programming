@@ -21,9 +21,9 @@ if __name__ == "__main__":
 
     results = session.query(State, City).filter(
         (State.id == City.state_id)).order_by(State.id, City.id).all()
-    
+
     curr_state = None
-        
+
     for state, city in results:
         if state != curr_state:
             curr_state = state
