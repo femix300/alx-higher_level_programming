@@ -7,6 +7,15 @@ def find_peak(list_of_integers):
 
     array = list_of_integers
 
+    if not array:
+        return None
+
+    if len(array) == 1:
+        return array[0]
+
+    if len(array) == 2:
+        return max(array[0], array[1])
+
     left, right = 0, len(array) - 1
 
     while left <= right:
@@ -20,3 +29,4 @@ def find_peak(list_of_integers):
             left = mid + 1
         else:
             return array[mid]
+
