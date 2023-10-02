@@ -10,12 +10,14 @@ if __name__ == '__main__':
     owner_name = sys.argv[2]
 
     url = f'https://api.github.com/repos/{repo_name}/{owner_name}/commits'
-    params = {'per_page': 10}
 
-    r = requests.get(url, params=params)
+    r = requests.get(url)
     data = r.json()
 
-    for commit in data:
-        sha = commit['sha']
-        author_name = commit['commit']['author']['name']
-        print('{}: {}'.format(sha, author_name))
+    try:
+        for i in range(10):
+            sha = data[i]['sha']
+            author_name = data[i]['commit']['author']['name']
+            print('{}: {}'.format(sha, author_name))
+    except IndexError:
+        pass
