@@ -14,11 +14,13 @@ if __name__ == '__main__':
     data = {'q': letter}
 
     response = requests.post(url, data=data)
-    json_fmt = response.json()
+    try:
+        json_fmt = response.json()
 
-    if isinstance(json_fmt, dict) and 'id' in json_fmt and 'name' in json_fmt:
-        print("[{}] {}".format(json_fmt['id'], json_fmt['name']))
-    elif not json_fmt:
-        print("No result")
-    else:
+        if isinstance(json_fmt, dict):
+            if 'id' in json_fmt and 'name' in json_fmt:
+                print("[{}] {}".format(json_fmt['id'], json_fmt['name']))
+        if not json_fmt:
+            print("No result")
+    except ValueError:
         print("Not a valid JSON")
