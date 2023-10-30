@@ -1,5 +1,9 @@
 #!/usr/bin/node
 const request = require('request');
-request.get(process.argv[2]).on('response', function (response) {
-  console.log(`code: ${response.statusCode}`);
+
+request('https://jsonplaceholder.typicode.com/users', (error, response) => {
+  if (error) {
+    console.log(error);
+  }
+  console.log('code:', response.statusCode);
 });
